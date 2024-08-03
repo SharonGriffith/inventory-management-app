@@ -30,16 +30,6 @@ const style = {
 
 export default function Home() {
   // We'll add our component logic here
-  const [inventory, setInventory] = useState([])
-  const [open, setOpen] = useState(false)
-  const [itemName, setItemName] = useState('')
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-  
-  useEffect(() => {
-    updateInventory()
-  }, [])
-
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'))
     const docs = await getDocs(snapshot)
@@ -75,6 +65,16 @@ export default function Home() {
     }
     await updateInventory()
   }
+  
+  const [inventory, setInventory] = useState([])
+  const [open, setOpen] = useState(false)
+  const [itemName, setItemName] = useState('')
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  
+  useEffect(() => {
+    updateInventory()
+  }, [])
 
   return (
     <Box

@@ -65,7 +65,7 @@ export default function Home() {
     }
     await updateInventory()
   }
-  
+
   const [inventory, setInventory] = useState([])
   const [open, setOpen] = useState(false)
   const [itemName, setItemName] = useState('')

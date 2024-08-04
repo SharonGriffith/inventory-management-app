@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Box, Stack, Typography, Button, Modal, TextField } from '@mui/material'
+import { Box, Stack, Typography, Button, Modal, TextField, createTheme, ThemeProvider } from '@mui/material'
 import { firestore } from '@/firebase'
 import {
   collection,
@@ -27,6 +27,20 @@ const style = {
   flexDirection: 'column',
   gap: 3,
 }
+
+const theme = createTheme({
+  palette: {
+      primary: {
+          main: "#6495ED",
+      }
+  },
+  typography: {
+      h2: {
+          fontSize: "3rem",
+          fontWeight: 600
+      }
+  }
+});
 
 export default function Home() {
   // We'll add our component logic here
@@ -77,6 +91,7 @@ export default function Home() {
   }, [])
 
   return (
+    <ThemeProvider theme={theme}>
     <Box
       width="100vw"
       height="100vh"
@@ -160,5 +175,6 @@ export default function Home() {
         </Stack>
       </Box>
     </Box>
+    </ThemeProvider>
   )
 }

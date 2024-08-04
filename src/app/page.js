@@ -25,7 +25,7 @@ const style = {
   p: 4,
   display: 'flex',
   flexDirection: 'column',
-  gap: 3,
+  gap: 3
 }
 
 export default function Home() {
@@ -43,11 +43,6 @@ export default function Home() {
            light: "#2BE38A", // green
            contrastText: "#000000", // black
       }
-    },
-    typography: {
-        h2: {
-          //color: "#000000"
-        },
     }
   })
 

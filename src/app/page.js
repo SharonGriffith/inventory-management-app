@@ -29,7 +29,6 @@ const style = {
 }
 
 export default function Home() {
-  /*
   const theme = createTheme({
     palette: {
       primary: {
@@ -45,7 +44,7 @@ export default function Home() {
            contrastText: "#000000", // black
       }
     }
-  })*/
+  })
 
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'))
@@ -94,7 +93,7 @@ export default function Home() {
   }, [])
 
   return (
-    //<ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
     <Box     
       width="100vw"
       height="100vh"
@@ -177,6 +176,6 @@ export default function Home() {
         </Stack>
       </Box>
     </Box>
-    //</ThemeProvider>
+    </ThemeProvider>
   )
 }

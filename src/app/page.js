@@ -31,15 +31,23 @@ const style = {
 export default function Home() {
   const theme = createTheme({
     palette: {
-        primary: {
-            main: "#6495ED",
-        }
+      primary: {
+          main: "#8A2BE3", // purple
+          dark: "#8A2BE3", // purple
+          light: "#E38A2B", // orange
+          contrastText: "#000000", // white
+      },
+      secondary: {
+           main: "#2BE38A", // green
+           dark: "#E38A2B", // orange
+           light: "#2BE38A", // green
+           contrastText: "#000000", // black
+      }
     },
     typography: {
         h2: {
-            fontSize: "3rem",
-            fontWeight: 600
-        }
+          //color: "#000000"
+        },
     }
   })
 
@@ -91,7 +99,7 @@ export default function Home() {
 
   return (
     <ThemeProvider theme={theme}>
-    <Box
+    <Box     
       width="100vw"
       height="100vh"
       display={'flex'}
@@ -132,19 +140,19 @@ export default function Home() {
           </Stack>
         </Box>
       </Modal>
-      <Button variant="contained" onClick={handleOpen}>
+      <Button variant="contained" sx = {{ bgcolor: "secondary.main", color: "secondary.main.contrastText"}} onClick={handleOpen}>
         Add New Item
       </Button>
       <Box border={'1px solid #333'}>
         <Box
+          sx = {{ bgcolor: "primary.main", color: "primary.main.contrastText"}}
           width="800px"
           height="100px"
-          bgcolor={'#ADD8E6'}
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
         >
-          <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
+          <Typography variant={'h2'} textAlign={'center'}>
             Inventory Items
           </Typography>
         </Box>
@@ -157,16 +165,15 @@ export default function Home() {
               display={'flex'}
               justifyContent={'space-between'}
               alignItems={'center'}
-              bgcolor={'#f0f0f0'}
               paddingX={5}
             >
-              <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
+              <Typography variant={'h3'} textAlign={'center'}>
                 {name.charAt(0).toUpperCase() + name.slice(1)}
               </Typography>
-              <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
+              <Typography variant={'h3'} textAlign={'center'}>
                 Quantity: {quantity}
               </Typography>
-              <Button variant="contained" onClick={() => removeItem(name)}>
+              <Button variant="contained" sx = {{ bgcolor: "secondary.main", color: "secondary.main.contrastText"}} onClick={() => removeItem(name)}>
                 Remove
               </Button>
             </Box>

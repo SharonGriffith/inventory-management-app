@@ -28,22 +28,21 @@ const style = {
   gap: 3,
 }
 
-const theme = createTheme({
-  palette: {
-      primary: {
-          main: "#6495ED",
-      }
-  },
-  typography: {
-      h2: {
-          fontSize: "3rem",
-          fontWeight: 600
-      }
-  }
-});
-
 export default function Home() {
-  // We'll add our component logic here
+  const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#6495ED",
+        }
+    },
+    typography: {
+        h2: {
+            fontSize: "3rem",
+            fontWeight: 600
+        }
+    }
+  })
+
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, 'inventory'))
     const docs = await getDocs(snapshot)
